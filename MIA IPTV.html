@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>MIA FREE TV</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+
+<!-- สไตล์ -->
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #000;
+  }
+  #player {
+    height: 100vh;
+  }
+  .watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ff0;
+    pointer-events: none;
+  }
+  .title {
+    text-align: center;
+    color: #ff0;
+    margin: 8px 0;
+  }
+</style>
+
+<!-- สคริปต์ Clappr และปลั๊กอิน -->
+<script src="https://cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script>
+</head>
+
+<body>
+  <div id="player"></div>
+  <div class="watermark"><em>MIA IPTV</em></div>
+  <p class="title"><ins>MIA IPTV</ins></p>
+
+  <script>
+    var player = new Clappr.Player({
+      source: 'https://cco-streamer1.cdn.3bbtv.com:8443/3bb/live/33/33.mpd',
+      mimeType: 'application/dash+xml',
+      height: '100%',
+      width: '100%',
+      autoPlay: true,
+      mute: true, // ช่วยให้ autoplay ทำงานได้
+      plugins: [
+        DashShakaPlayback,
+        LevelSelector,
+        ChromecastPlugin,       // ปลั๊กอิน Chromecast
+        PipPlugin,              // ปลั๊กอิน Picture-in-Picture
+        PlaybackRatePlugin,     // ปลั๊กอินปรับความเร็ว
+        Clappr.MediaControl
+      ],
+      chromecast: {
+        preload: 'metadata',
+        contentType: 'application/dash+xml',
+      },
+      playbackRateConfig: {     // ค่าความเร็วที่เลือกได้
+        defaultValue: 1,
+        options: [0.5, 1, 1.25, 1.5, 2]
+      },
+      shakaConfiguration: {
+        drm: {
+          clearKeys: {
+            '9d76aea451d441a4913d4d70c4e586ab': '051027a6ff54494b949ba792928e9008'
+          }
+        }
+      },
+      events: {
+        onReady: function() {
+          var plugin = this.getPlugin('click_to_pause');
+          if (plugin) plugin.disable();
+        }
+      },
+      parentId: '#player'
+    });
+  </script>
+</body>
+</html>

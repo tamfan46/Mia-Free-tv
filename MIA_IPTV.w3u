@@ -1,37 +1,44 @@
-#EXTM3U
-
-#EXTINF:-1,MIA IPTV
-https://drive.google.com/uc?export=download&id=1hRrRGYwUu8gGVF7pp0DxiuEtakgWjCud
-
-#EXTINF:-1,📌 จุดประสงค์ในการสร้าง
-https://drive.google.com/uc?export=download&id=1hRrRGYwUu8gGVF7pp0DxiuEtakgWjCud
-
-#EXTINF:-1,📌 หากนำไปใช้เลี้ยงชีพ
-https://drive.google.com/uc?export=download&id=1hRrRGYwUu8gGVF7pp0DxiuEtakgWjCud
-
-#EXTINF:-1,แนะนำให้ใช้แอพ Wiseplay X
-https://play.google.com/store/apps/details?id=tv.wiseplay&pli=1
-
-#EXTINF:-1,📣 เข้าร่วมกลุ่มเพื่อแจ้งปัญหาและแบ่งปัน
-https://facebook.com/groups/573175259124094/
-
-#EXTINF:-1,กด Refresh เพื่ออัปเดทเพลย์ลิสต์ทุกครั้ง
-https://drive.google.com/uc?export=download&id=1hRrRGYwUu8gGVF7pp0DxiuEtakgWjCud
-
-#EXTINF:-1,Digital TV ™
-https://drive.google.com/uc?export=download&id=123hEBFa6PLNVbuCSYhXhYkcYW61bNNvj
-
-#EXTINF:-1,ช่องบันเทิง™
-https://drive.google.com/uc?export=download&id=12v8gEPX37YvKm6fbVz7gAQH74A8WKcbe
-
-#EXTINF:-1,สารคดี™
-https://drive.google.com/uc?export=download&id=1rTamcG9SrGUeM6SjMidMtT1U025cZf_s
-
-#EXTINF:-1,กีฬา™
-https://drive.google.com/uc?export=download&id=1vbZw_dyR0ALgVTwBtNze1CtZ9CH67Muv
-
-#EXTINF:-1,รายการเด็ก™
-https://drive.google.com/uc?export=download&id=1Me6eVTqx1gQRY8Byt8P5emcmMk0jrT9m
-
-#EXTINF:-1,วิทยุออนไลน์
-https://drive.google.com/uc?export=download&id=1X0W-yfonYnSsnauAdo-syimBSekgQvcL
+{
+    "name": "MIA IPTV",
+    "author": "ᵇʸ MIA IPTV",
+    "image": "https://drive.google.com/uc?export=download&id=1Pb_5m_MzYWdmxOejKV9yBgzmGWdiG7NB",
+    "groups": [
+        {
+            "name": "เพลย์ลิสต์หลัก",
+            "image": "https://example.com/master.png",
+            "stations": [
+                {
+                    "name": "MIA IPTV",
+                    "url": "https://drive.google.com/uc?export=download&id=1hRrRGYwUu8gGVF7pp0DxiuEtakgWjCud",
+                    "import": false
+                },
+                {
+                    "name": "📌 จุดประสงค์ในการสร้าง",
+                    "url": "https://drive.google.com/uc?export=download&id=1hRrRGYwUu8gGVF7pp0DxiuEtakgWjCud",
+                    "import": false
+                },
+                {
+                    "name": "📌 หากนำไปใช้เลี้ยงชีพ",
+                    "url": "https://drive.google.com/uc?export=download&id=1hRrRGYwUu8gGVF7pp0DxiuEtakgWjCud",
+                    "import": false
+                }
+            ]
+        },
+        {
+            "name": "เพลย์ลิสต์ซ้อน (Nested)",
+            "image": "https://example.com/nested.png",
+            "stations": [
+                {
+                    "name": "Digital TV",
+                    "url": "https://raw.githubusercontent.com/username/repo/main/digital.m3u",
+                    "import": true
+                },
+                {
+                    "name": "กีฬา",
+                    "url": "https://raw.githubusercontent.com/username/repo/main/sport.m3u",
+                    "import": true
+                }
+            ]
+        }
+    ]
+}
